@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_kakeibo/pages/home_screen.dart';
+import 'package:pocket_kakeibo/pages/report_screen.dart';
 
 class RootScreen extends StatefulWidget {
   const RootScreen({super.key});
@@ -13,7 +14,7 @@ class _RootScreenState extends State<RootScreen> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Text('Income'),
-    Text('Report'),
+    ReportScreen(),
   ];
 
   @override

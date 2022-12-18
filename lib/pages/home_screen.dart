@@ -22,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
       db.createInitialData();
     } else {
       db.loadData();
-      print(db.expense);
     }
     super.initState();
   }
