@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_kakeibo/pages/home_screen.dart';
+import 'package:pocket_kakeibo/pages/income_screen.dart';
 import 'package:pocket_kakeibo/pages/report_screen.dart';
 
 class RootScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _RootScreenState extends State<RootScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    Text('Income'),
+    IncomeScreen(),
     ReportScreen(),
   ];
 

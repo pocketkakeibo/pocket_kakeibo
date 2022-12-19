@@ -21,15 +21,7 @@ class IncomeCard extends StatelessWidget {
   });
 
   String get categoryImage {
-    if (category == 'Survival') {
-      return 'assets/survival.png';
-    } else if (category == 'Optional') {
-      return 'assets/optional.png';
-    } else if (category == 'Extra') {
-      return 'assets/extra.png';
-    } else {
-      return 'assets/culture.png';
-    }
+    return 'assets/salary.png';
   }
 
   @override

@@ -20,7 +20,7 @@ class ReportState extends State {
   @override
   void initState() {
     _localBox.clear();
-    if (_localBox.get('categories') == null) {
+    if (_localBox.get('exCategories') == null) {
       db.createInitialData();
     } else {
       db.loadData();
@@ -115,13 +115,13 @@ class ReportState extends State {
           ),
         ),
         Column(
-          // column to show the total of db.categories[0] to db.categories[3] format ex: 10000 to Rp. 10.000
+          // column to show the total of db.exCategories[0] to db.exCategories[3] format ex: 10000 to Rp. 10.000
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               'Rp. ' +
-                  db.categories[0]['total'].toString().replaceAllMapped(
+                  db.exCategories[0]['total'].toString().replaceAllMapped(
                       new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
                       (Match m) => '${m[1]}.'),
               style: TextStyle(
@@ -135,7 +135,7 @@ class ReportState extends State {
             ),
             Text(
               'Rp. ' +
-                  db.categories[1]['total'].toString().replaceAllMapped(
+                  db.exCategories[1]['total'].toString().replaceAllMapped(
                       new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
                       (Match m) => '${m[1]}.'),
               style: TextStyle(
@@ -149,7 +149,7 @@ class ReportState extends State {
             ),
             Text(
               'Rp. ' +
-                  db.categories[2]['total'].toString().replaceAllMapped(
+                  db.exCategories[2]['total'].toString().replaceAllMapped(
                       new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
                       (Match m) => '${m[1]}.'),
               style: TextStyle(
@@ -163,7 +163,7 @@ class ReportState extends State {
             ),
             Text(
               'Rp. ' +
-                  db.categories[3]['total'].toString().replaceAllMapped(
+                  db.exCategories[3]['total'].toString().replaceAllMapped(
                       new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
                       (Match m) => '${m[1]}.'),
               style: TextStyle(
@@ -190,18 +190,18 @@ class ReportState extends State {
         case 0:
           return PieChartSectionData(
             color: const Color(0xff0293ee),
-            value: (db.categories[0]['total'] /
-                    (db.categories[0]['total'] +
-                        db.categories[1]['total'] +
-                        db.categories[2]['total'] +
-                        db.categories[3]['total']) *
+            value: (db.exCategories[0]['total'] /
+                    (db.exCategories[0]['total'] +
+                        db.exCategories[1]['total'] +
+                        db.exCategories[2]['total'] +
+                        db.exCategories[3]['total']) *
                     100)
                 .roundToDouble(),
-            title: (db.categories[0]['total'] /
-                        (db.categories[0]['total'] +
-                            db.categories[1]['total'] +
-                            db.categories[2]['total'] +
-                            db.categories[3]['total']) *
+            title: (db.exCategories[0]['total'] /
+                        (db.exCategories[0]['total'] +
+                            db.exCategories[1]['total'] +
+                            db.exCategories[2]['total'] +
+                            db.exCategories[3]['total']) *
                         100)
                     .roundToDouble()
                     .toString() +
@@ -216,17 +216,17 @@ class ReportState extends State {
         case 1:
           return PieChartSectionData(
             color: const Color(0xfff8b250),
-            value: db.categories[1]['total'] /
-                (db.categories[0]['total'] +
-                    db.categories[1]['total'] +
-                    db.categories[2]['total'] +
-                    db.categories[3]['total']) *
+            value: db.exCategories[1]['total'] /
+                (db.exCategories[0]['total'] +
+                    db.exCategories[1]['total'] +
+                    db.exCategories[2]['total'] +
+                    db.exCategories[3]['total']) *
                 100,
-            title: (db.categories[1]['total'] /
-                        (db.categories[0]['total'] +
-                            db.categories[1]['total'] +
-                            db.categories[2]['total'] +
-                            db.categories[3]['total']) *
+            title: (db.exCategories[1]['total'] /
+                        (db.exCategories[0]['total'] +
+                            db.exCategories[1]['total'] +
+                            db.exCategories[2]['total'] +
+                            db.exCategories[3]['total']) *
                         100)
                     .roundToDouble()
                     .toString() +
@@ -241,17 +241,17 @@ class ReportState extends State {
         case 2:
           return PieChartSectionData(
             color: const Color(0xff845bef),
-            value: db.categories[2]['total'] /
-                (db.categories[0]['total'] +
-                    db.categories[1]['total'] +
-                    db.categories[2]['total'] +
-                    db.categories[3]['total']) *
+            value: db.exCategories[2]['total'] /
+                (db.exCategories[0]['total'] +
+                    db.exCategories[1]['total'] +
+                    db.exCategories[2]['total'] +
+                    db.exCategories[3]['total']) *
                 100,
-            title: (db.categories[2]['total'] /
-                        (db.categories[0]['total'] +
-                            db.categories[1]['total'] +
-                            db.categories[2]['total'] +
-                            db.categories[3]['total']) *
+            title: (db.exCategories[2]['total'] /
+                        (db.exCategories[0]['total'] +
+                            db.exCategories[1]['total'] +
+                            db.exCategories[2]['total'] +
+                            db.exCategories[3]['total']) *
                         100)
                     .roundToDouble()
                     .toString() +
@@ -266,17 +266,17 @@ class ReportState extends State {
         case 3:
           return PieChartSectionData(
             color: const Color(0xff13d38e),
-            value: db.categories[3]['total'] /
-                (db.categories[0]['total'] +
-                    db.categories[1]['total'] +
-                    db.categories[2]['total'] +
-                    db.categories[3]['total']) *
+            value: db.exCategories[3]['total'] /
+                (db.exCategories[0]['total'] +
+                    db.exCategories[1]['total'] +
+                    db.exCategories[2]['total'] +
+                    db.exCategories[3]['total']) *
                 100,
-            title: (db.categories[3]['total'] /
-                        (db.categories[0]['total'] +
-                            db.categories[1]['total'] +
-                            db.categories[2]['total'] +
-                            db.categories[3]['total']) *
+            title: (db.exCategories[3]['total'] /
+                        (db.exCategories[0]['total'] +
+                            db.exCategories[1]['total'] +
+                            db.exCategories[2]['total'] +
+                            db.exCategories[3]['total']) *
                         100)
                     .roundToDouble()
                     .toString() +

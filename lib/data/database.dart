@@ -2,7 +2,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 class Database {
   List expense = [];
-  List categories = [];
+  List income = [];
+  List exCategories = [];
+  List inCategories = [];
 
   final _localBox = Hive.box('localBox');
 
@@ -40,7 +42,22 @@ class Database {
       }
     ];
 
-    categories = [
+    income = [
+      {
+        'name': 'Job',
+        'price': 7000000,
+        'category': 'Active',
+        'date': DateTime.now(),
+      },
+      {
+        'name': 'Stock',
+        'price': 3000000,
+        'category': 'Passive',
+        'date': DateTime.now(),
+      },
+    ];
+
+    exCategories = [
       {
         'name': 'Survival',
         'total': 200000,
@@ -58,15 +75,30 @@ class Database {
         'total': 300000,
       },
     ];
+
+    inCategories = [
+      {
+        'name': 'Active',
+        'total': 7000000,
+      },
+      {
+        'name': 'Passive',
+        'total': 3000000,
+      },
+    ];
   }
 
   void loadData() {
     expense = _localBox.get('expense');
-    categories = _localBox.get('categories');
+    income = _localBox.get('income');
+    exCategories = _localBox.get('exCategories');
+    inCategories = _localBox.get('inCategories');
   }
 
   void updateDatabase() {
     _localBox.put('expense', expense);
-    _localBox.put('categories', categories);
+    _localBox.put('income', income);
+    _localBox.put('exCategories', exCategories);
+    _localBox.put('inCategories', inCategories);
   }
 }
