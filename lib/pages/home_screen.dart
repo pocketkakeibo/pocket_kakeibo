@@ -95,6 +95,17 @@ class _HomeScreenState extends State<HomeScreen> {
             ? DateTime.now()
             : DateTime.parse(_controllers[3].text)
       });
+
+      if (_controllers[2].text == "Survival") {
+        db.exCategories[0]['total'] += int.parse(_controllers[1].text);
+      } else if (_controllers[2].text == "Optional") {
+        db.exCategories[1]['total'] += int.parse(_controllers[1].text);
+      } else if (_controllers[2].text == "Culture") {
+        db.exCategories[2]['total'] += int.parse(_controllers[1].text);
+      } else if (_controllers[2].text == "Extra") {
+        db.exCategories[3]['total'] += int.parse(_controllers[1].text);
+      }
+
       Navigator.of(context).pop();
     });
     db.updateDatabase();
